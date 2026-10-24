@@ -325,6 +325,47 @@ f<T>(x)
         (identifier)))))
 
 ==================================
+Generic tagged templates
+:language(typescript)
+:language(tsx)
+==================================
+
+tag<string>`text`;
+tag<string[]>`text ${item}`;
+tag<Array<string>>`text`;
+
+---
+
+(program
+  (expression_statement
+    (call_expression
+      (identifier)
+      (type_arguments
+        (predefined_type))
+      (template_string
+        (string_fragment))))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (type_arguments
+        (array_type
+          (predefined_type)))
+      (template_string
+        (string_fragment)
+        (template_substitution
+          (identifier)))))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (type_arguments
+        (generic_type
+          (type_identifier)
+          (type_arguments
+            (predefined_type))))
+      (template_string
+        (string_fragment)))))
+
+==================================
 Instantiation expressions
 ==================================
 
